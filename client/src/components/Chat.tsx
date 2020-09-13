@@ -26,6 +26,25 @@ const Chat = (props: Props) => {
           </IconButton>
         </div>
       </div>
+      <div className="chat__body">
+        <p className="chat__message">
+          <span className="chat__name">Blaine</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+
+        <p className="chat__message chat__receiver">
+          <span className="chat__name">Blaine</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+
+        <p className="chat__message">
+          <span className="chat__name">Blaine</span>
+          This is a message
+          <span className="chat__timestamp">{new Date().toUTCString()}</span>
+        </p>
+      </div>
     </div>
   );
 };
