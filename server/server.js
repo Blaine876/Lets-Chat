@@ -25,12 +25,6 @@ app.use(helmet());
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  next();
-});
-
 //DB CONNECT
 const db_URI =
   "mongodb+srv://admin:b8Wvym2MMI69fm7b@cluster0.olfy8.mongodb.net/whatsappdb?retryWrites=true&w=majority";
@@ -57,6 +51,8 @@ db.once("open", () => {
       pusher.trigger("messages", "inserted", {
         name: messageDetails.name,
         message: messageDetails.message,
+        timestamp: messageDetails.timestamp,
+        received: messageDetails.received,
       });
     } else {
       console.log("Error triggering Pusher");
